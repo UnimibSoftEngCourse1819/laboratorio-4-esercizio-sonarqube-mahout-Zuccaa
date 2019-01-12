@@ -156,7 +156,8 @@ public final class FastIDSet implements Serializable, Cloneable, Iterable<Long> 
   
   public long[] toArray() {
     long[] result = new long[numEntries];
-    for (int i = 0, position = 0; i < result.length; i++) {
+    int position = 0;
+    for (int i = 0; i < result.length; i++) {
       while (keys[position] == NULL || keys[position] == REMOVED) {
         position++;
       }
