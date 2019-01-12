@@ -265,7 +265,7 @@ public class ParallelSGDFactorizer extends AbstractFactorizer {
         shuffler.shuffle();
 
         try {
-          boolean terminated = executor.awaitTermination(numEpochs * shuffler.size(), TimeUnit.MICROSECONDS);
+          boolean terminated = executor.awaitTermination((long) numEpochs * shuffler.size(), TimeUnit.MICROSECONDS);
           if (!terminated) {
             logger.error("subtasks takes forever, return anyway");
           }
