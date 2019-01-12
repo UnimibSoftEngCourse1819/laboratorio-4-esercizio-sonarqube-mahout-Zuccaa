@@ -162,16 +162,16 @@ public class IDReader {
   }
 
   void addUserAndItemIdToUserItemFilter(Map<Long, FastIDSet> filter, Long userId, Long itemId) {
-    FastIDSet item_Ids;
+    FastIDSet newItemId;
 
     if (filter.containsKey(userId)) {
-      item_Ids = filter.get(userId);
+      newItemId = filter.get(userId);
     } else {
-      item_Ids = new FastIDSet();
-      filter.put(userId, item_Ids);
+      newItemId = new FastIDSet();
+      filter.put(userId, newItemId);
     }
 
-    item_Ids.add(itemId);
+    newItemId.add(itemId);
   }
 
   static FastIDSet extractAllUserIdsFromUserItemFilter(Map<Long, FastIDSet> filter) {
